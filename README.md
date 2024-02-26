@@ -15,8 +15,10 @@ The NYT crossword has been published since 1942, and many consider the "modern e
 **Figure 1** shows dimensionality reduction via Principal Component Analysis (PCA) of 23 grid, clue and answer-related features obtained from XWord Info. This analysis demonstrates that, while puzzles from a given puzzle day do indeed aggregate with each other in n-dimensional "puzzle property space", the puzzle days themselves nonetheless exist along a continuum. Sunday is well-separated from the other puzzle days in this analysis by PCA1, which undoubtedly incorporates one or more grid size-contingent features.   
 
 **<h4>Figure 1. PCA of Select Puzzle Grid, Clue and Answer Features**                                                                  
+
 ![image](https://github.com/ursus-maritimus-714/NYT-XWord_Modeling-Individual-Solver-2/assets/90933302/427e8bd4-692a-4600-8218-7297df05a016)
 *<h5>The first 3 principal components accounted for 47.5% of total variance. All puzzles issued from Jan. 1, 2018- Feb. 24, 2024 were included in this analysis (N=2,246).*
+
 ###
 
 The overlapping distributions of per puzzle day IS2 solve times across the entire sample period (**Figure 2**) show a parallel performance phenomenon to the continuum of puzzle properties seen in **Fig. 1**. While solve difficulty increased as the week progressed, puzzle days of adjacent difficulty still had substantially overlapping IS2 solve time distributions. Other than for the "easy" days (Monday and Tuesday), distributions of IS2 solve times were quite broad. It should be noted, however, that the broadness of each puzzle day-specific IS2 solve time distribution was also increased by the dramatic improvement in IS2 performance over the full sample period.      
