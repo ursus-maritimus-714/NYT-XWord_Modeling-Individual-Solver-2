@@ -97,3 +97,14 @@ Subtraction individually of 6 features from classes other than 'Past Performance
 **<h4>Figure 9. Effect on Model Prediction Quality of Removing Key Individual Features**
 
 ![image](https://github.com/ursus-maritimus-714/NYT-XWord_Modeling-Individual-Solver-2/assets/90933302/5b5ec603-9df7-4ce8-a1ff-3ee7ea100994)
+
+###
+**4)** 'Best Model' was discovered on a puzzle day-specific basis ('BPDM'), including for the lone 21x21 puzzle day Sunday (**Figure 10**). Because IS2 mean solve time per puzzle day varied considerably, training errors in **Fig. 10** were normalized to percentage difference from training set mean for that puzzle day. The 'Dummy' model in this puzzle day-specific context is analogous to the 'Mean PDS IST' benchmark model in **Fig. 7**, as the 'Dummy' for all 15x15 puzzles guessed the *overall sample mean* for each puzzle regardless of puzzle day. 
+
+Though the number of puzzles included in the 'BPDMs' (N= 150-174) was much smaller than that in the all 15x15 puzzles model, each still outperformed its particular (not so dumb) 'Dummy'. Sunday (35.4% mean 'BPDM' training error), Monday (32.5%) and Tuesday (31.3%) stood out as the most predictable individual puzzle days, though standard deviations for Monday and Tuesday were large compared to the gap between mean 'BPDM' and 'Dummy' error. There was an overall trend toward increased mean error as puzzle days became more difficult, with Friday and Saturday both having mean error greater (>50% for each) than that seen for the overall 'Best Model' for IS2 (44.3%). It is worth noting, however, that despite the much smaller sample size, each 'BPDM' other than Fri and Sat outperformed the all 15x15 puzzle days 'Best Model' (see **Fig. 7** and associated text) on a % of mean solve time basis. 
+
+**Figure 10. Best Puzzle Day-Specific Model (BPDM) Prediction Quality**
+
+![image](https://github.com/ursus-maritimus-714/NYT-XWord_Modeling-Individual-Solver-2/assets/90933302/6f45cb11-199c-49ce-bf0a-f58db521fdbe)
+*<h5> 'BPDM' for each day was a Gradient Boosting Regression Model, with hyperparameter optimization specific to that puzzle day. Due to the relatively small number of puzzles in the sample for each puzzle day, a 90/10 training/testing split was used to find each 'BPDM' (range of 150 [Mon] to 174 [Fri] total puzzles per puzzle day). Data Quality Assessments across 'BPDMs' uniformly indicated that model quality continued to increase at 90% training set inclusion.* 
+
