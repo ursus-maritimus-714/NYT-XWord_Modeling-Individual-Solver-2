@@ -30,7 +30,7 @@ The overlapping distributions of per puzzle day IS2 solve times across the entir
 
 ### Key Outcomes from the IS2 EDA
 
-One of the most important findings from the EDA as far as implications for predictive modeling was that, despite several periods of volatility across puzzle days, IS2 demonstrated continual, marked improvement over the course of the sample period across all puzzle days (**Figure 3**). Coupled to the fact that puzzle day-specific recent past performance ('Recent Performance Baseline' [RPB]) was highly positively correlated to performance on the next puzzle both overall (r=.73) and across puzzle days (**Figure 4**), this created an imperative to explore and potentially include different variants of this feature type in the predictive modeling stage.    
+One of the most important findings from the EDA as far as implications for predictive modeling was that, despite several periods of volatility across puzzle days, IS2 demonstrated continual, marked improvement over the course of the sample period across all puzzle days (**Figure 3**). Coupled to the fact that puzzle day-specific recent past performance ('Recent Performance Baseline' ['RPB']) was highly positively correlated to performance on the next puzzle both overall (r=.73) and across puzzle days (**Figure 4**), this created an imperative to explore and potentially include different variants of this feature type in the predictive modeling stage.    
 
 **<h4>Figure 3. IS2 Solve Time Overview by Puzzle Day: 10-Puzzle Moving Averages and Distributions of Raw Values**
 
