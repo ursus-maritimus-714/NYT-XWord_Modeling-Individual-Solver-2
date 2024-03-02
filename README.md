@@ -34,26 +34,26 @@ One of the most important findings from the EDA as far as implications for predi
 
 **<h4>Figure 3. IS2 Solve Time Overview by Puzzle Day: 10-Puzzle Moving Averages and Distributions of Raw Values**
 
-![image](https://github.com/ursus-maritimus-714/NYT-XWord_Modeling-Individual-Solver-2/assets/90933302/ca29ed09-aafe-491a-912e-e6ba28598743)
-*<h5>All puzzles completed by IS2 in the sample period were included in this analysis (N=1,202).* 
+![image](https://github.com/ursus-maritimus-714/NYT-XWord_Modeling-Individual-Solver-2/assets/90933302/95efa1a5-c08a-49f4-bf8c-9f800a26dbe7)
+*<h5>All puzzles completed by IS2 in the sample period were included in this analysis (N=1,228).* 
 
 **<h4>Figure 4. Puzzle Day-Specific, Recent Performance Baseline (RPB) Correlation to IS2 Performance on the Next Puzzle**
 
-![image](https://github.com/ursus-maritimus-714/NYT-XWord_Modeling-Individual-Solver-2/assets/90933302/e0d93fca-ddfb-4cad-8dc9-3966cb22563b)
-*<h5> Puzzle-day specific, recent past performance (x-axis) was calculated over the 10 day-specific puzzles previous to the next solve (y-axis) to obtain 'RPB'. All puzzles completed by IS1 from Jan. 1, 2020- Feb. 25, 2024 were included in this analysis (N=1,104).* 
+![image](https://github.com/ursus-maritimus-714/NYT-XWord_Modeling-Individual-Solver-2/assets/90933302/c037a282-4cd0-4176-b856-825140f082ca)
+*<h5> Puzzle-day specific, recent past performance (x-axis) was calculated over the 10 day-specific puzzles previous to the next solve (y-axis) to obtain 'RPB'. All puzzles completed by IS1 from Jan. 1, 2020- Mar. 2, 2024 were included in this analysis (N=1,130).* 
 
 ###
-Along with the 'RPB' discussed above, multiple features pertaining to the puzzles themselves demonstrated moderately strong or strong correlations with IS2 performance on individual puzzles (**Figure 5**). Two that stood out in particular for their correlational strength with IS2 performance were 'Average Answer Length' and 'Freshness Factor', the latter of which is a proprietary XWord Info measure of the rareness of a given answer in the NYT puzzle. The strengths of these positive correlations with IS2 solve times (for all 15x15 puzzles: r=.56 for both features) can be seen both in the correlation heatmap (A; top row - 5th and 11th columns) as well as in the overall (black) and per-puzzle day (colors) feature correlation scatterplots in panel B. The feature density plots (C) show that the distributions of these features were well-separated across puzzle days. This is an important property for candidate predictive features to have since, as is shown in **Fig. 2**, distribution peaks of solve times for individual puzzle days were themselves well-separated.
+Along with the 'RPB' discussed above, multiple features pertaining to the puzzles themselves demonstrated moderately strong or strong correlations with IS2 performance on individual puzzles (**Figure 5**). Two that stood out in particular for their correlational strength with IS2 performance were 'Average Answer Length' and 'Freshness Factor', the latter of which is a proprietary XWord Info measure of the rareness of a given answer in the NYT puzzle. The strengths of these positive correlations with IS2 solve times (for all 15x15 puzzles: r=.55 and .56, respectively) can be seen both in the correlation heatmap (A; top row - 5th and 11th columns) as well as in the overall (black) and per-puzzle day (colors) feature correlation scatterplots in panel B. The feature density plots (C) show that the distributions of these features were well-separated across puzzle days. This is an important property for candidate predictive features to have since, as is shown in **Fig. 2**, distribution peaks of solve times for individual puzzle days were themselves well-separated.
 
 **<h4>Figure 5. Correlations of Puzzle-Related and Past Performance Features to IS2 Solve Times**
 
-![image](https://github.com/ursus-maritimus-714/NYT-XWord_Modeling-Individual-Solver-2/assets/90933302/2278e4e3-b5ce-4256-b9f7-1df5cd86068f)
-*<h5> All puzzles completed by IS2 from Jan. 1, 2020- Feb. 25, 2024 were included in this analysis (N=1,104).*
+![image](https://github.com/ursus-maritimus-714/NYT-XWord_Modeling-Individual-Solver-2/assets/90933302/5a214e65-79a1-45cc-b090-d3c6b07cd415)
+*<h5> All puzzles completed by IS2 from Jan. 1, 2020- Mar. 2, 2024 were included in this analysis (N=1,130).*
 
 ## Methods
 ### Predictive Feature Generation
 
-For predictive feature generation, all puzzles completed by IS2 from Apr. 21, 2018-Feb. 25, 2024 (N=1,202) were included. This full sample included puzzles issued by NYT as early as March, 2018. The right panel of **Figure 6** summarizes predictive features included in the modeling stage (N=40) by broad class. A few key example features from each class are mentioned below. **Supplementary Table 1** comprehensively lists out, classifies and describes all included features.  
+For predictive feature generation, all puzzles completed by IS2 from Apr. 21, 2018-Mar. 2, 2024 (N=1,228) were included. This full sample included puzzles issued by NYT as early as March, 2018. The right panel of **Figure 6** summarizes predictive features included in the modeling stage (N=40) by broad class. A few key example features from each class are mentioned below. **Supplementary Table 1** comprehensively lists out, classifies and describes all included features.  
 
 * Solver 'Past Performance' features (n=6) included 'IS_RPB_l10'. This feature captured puzzle day-specific 'Recent Performance Baseline' ('RPB') over the 10 puzzles immediately prior to a puzzle with a time being predicted. A number of temporal integration windows and time-decay weighting curves for this feature were tested in [preliminary univariate linear regression modeling](https://github.com/ursus-maritimus-714/NYT-XWord_Modeling-Individual-Solver-2/tree/main/notebooks/learning%20rate%20modeling), and a 10-puzzle window (l10) with *no* time-decay weighting yielded the lowest root mean square error (RMSE) mean training error. Furthermore, it was found that predictions with these parameters further improved with adjustment of this past performance feature by the performance of *the GMS* over the same set of puzzles relative to the *GMS' own* recent performance prior to those puzzles. This is referred to as 'Strength of Schedule adjustment' ('SOS adjustment') from here forward, and the left panel of **Fig. 6** depicts creation of this feature. Also note that another feature in this class, which captured normalized past performance against the constructor(s) of a puzzle being predicted ('IS Past Perf vs Constr'), used this 'SOS adjustment' in calculation of the baseline solve time expectation component (see **Supp. Table 1**).   
  
