@@ -3,7 +3,7 @@
 ## Introduction
 
 ### Project Overview and Data Sources
-This summary reports on the results of predictive modeling of an individual solver's (Individual Solver 2; IS2) performance over a large subset of nearly 6 years (Mar. 2018 - Feb. 2024) of the [New York Times (NYT) crossword puzzle](https://www.nytimes.com/crosswords).  Previously, I conducted a [comprehensive exploratory data analysis (EDA) of IS2 performance](https://github.com/ursus-maritimus-714/NYT-XWord-EDA-Individual-Solver-2/blob/main/README.md) over this sample period. From this EDA, numerous features pertaining to both the puzzles themselves as well as to IS2 past performance were identified as candidate features for predictive modeling of IS2 solve times.    
+This summary reports on the results of predictive modeling of an individual solver's (Individual Solver 2; IS2) performance over a large subset of 6 years (Mar. 2018 - Mar. 2024) of the [New York Times (NYT) crossword puzzle](https://www.nytimes.com/crosswords).  Previously, I conducted a [comprehensive exploratory data analysis (EDA) of IS2 performance](https://github.com/ursus-maritimus-714/NYT-XWord-EDA-Individual-Solver-2/blob/main/README.md) over this sample period. From this EDA, numerous features pertaining to both the puzzles themselves as well as to IS2 past performance were identified as candidate features for predictive modeling of IS2 solve times.    
 
 Without access to two specific data sources this project would not have been possible. The first, [XWord Info: New York Times Crossword Answers and Insights](https://www.xwordinfo.com/), was my source for data on the puzzles themselves. This included a number of proprietary metrics pertaining to the grids, answers, clues and constructors. XWord Info has a contract with NYT for access to the raw data underlying these metrics, but I unfortunately do not. Therefore, I will not be able to share raw or processed data that I've acquired from their site. Nonetheless, [Jupyter notebooks](https://jupyter.org/) with all of my Python code for analysis and figure generation can be found [here](). The second, [XWStats](https://xwstats.com/), was my source for historical solve time data for both IS2 and for the "Global Median Solver" (GMS). XWStats (Matt) derives the GMS solve time as that at the 50th percentile out of ~1-2K individual solvers providing their solve times per puzzle. In the context of IS2 modeling, historical GMS solve times were used to derive a "Strength of Schedule" adjustment to features capturing IS2 past performance prior to a given solve time to be predicted (see Methods section for details). I have previously completed an [EDA](https://github.com/ursus-maritimus-714/NYT-XWord-EDA-Global-Median-Solver?tab=readme-ov-file#readme) and [predictive modeling](https://github.com/ursus-maritimus-714/NYT-XWord-Modeling-Global-Median-Solver/blob/main/README.md) for the GMS. In addition, I have also completed [EDA](https://github.com/ursus-maritimus-714/NYT-XWord-EDA-Individual-Solver-1/blob/main/README.md) and [predictive modeling](https://github.com/ursus-maritimus-714/NYT-XWord-Modeling-Individual-Solver-1/blob/main/README.md) for another individual solver (IS1; me) as well. 
 
@@ -16,8 +16,8 @@ The NYT crossword has been published since 1942, and many consider the "modern e
 
 **<h4>Figure 1. PCA of Select Puzzle Grid, Clue and Answer Features**                                                                  
 
-![image](https://github.com/ursus-maritimus-714/NYT-XWord_Modeling-Individual-Solver-2/assets/90933302/427e8bd4-692a-4600-8218-7297df05a016)
-*<h5>The first 3 principal components accounted for 47.5% of total variance. All puzzles issued from Jan. 1, 2018- Feb. 24, 2024 were included in this analysis (N=2,246).*
+![image](https://github.com/ursus-maritimus-714/NYT-XWord_Modeling-Individual-Solver-2/assets/90933302/b19f5358-9be4-46d9-a0c8-032149f6f6f4)
+*<h5>The first 3 principal components accounted for 47.4% of total variance. All puzzles issued from Jan. 1, 2018- Mar. 2, 2024 were included in this analysis (N=2,253).*
 
 ###
 
@@ -25,8 +25,8 @@ The overlapping distributions of per puzzle day IS2 solve times across the entir
 
 **<h4>Figure 2. Distributions of IS2 Solve Times by Puzzle Day for Full Sample Period**                   
 
-![image](https://github.com/ursus-maritimus-714/NYT-XWord_Modeling-Individual-Solver-2/assets/90933302/f04b970f-e71f-4e2a-8898-542c9cf4faa7)
-*<h5>All puzzles completed by IS2 in the sample period were included in this analysis (N=1,202).* 
+![image](https://github.com/ursus-maritimus-714/NYT-XWord_Modeling-Individual-Solver-2/assets/90933302/27502703-0bbd-4432-bd1d-2d2d1c86efee)
+*<h5>All puzzles completed by IS2 in the sample period were included in this analysis (N=1,228).* 
 
 ### Key Outcomes from the IS2 EDA
 
